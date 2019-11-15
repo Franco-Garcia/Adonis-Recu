@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ventas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    {{ style('style') }}
+  </head>
+  <body>
+  <section>
+    
+    <div >
+      
+      <h1 class="title">
+        Agregar Vehiculo
+      </h1><br><br>
+      <form action="http://127.0.0.1:3333/vehiculo/crear" method="POST">
+        <div >
+          <div>
+            <h3 style="color:white">
+              Modelo <input class="input is-success is-rounded" name="modelo" placeholder="Modelo"/>
+            </h3><br>
+            <h3 style="color:white">
+              Color <input class="input is-success is-rounded" name="color" placeholder="Color"/>
+            </h3><br>
+            <h3 style="color:white">
+              Fecha Entrada <input class="input is-success is-rounded" type="date" name="fecha_ent" placeholder="Fecha Entrada"/>
+            </h3><br>
+            <h3 style="color:white">
+              Hora Entrada <input class="input is-success is-rounded" type="time" name="hora_ent" placeholder="Hora Entrada"/>
+            </h3><br>
+            <h3 style="color:white">
+              Clientes
+              
+                <select name="cliente_id"> 
+                    @each(client in clients)
+                        <option value="{{client.id}}" name="{{client.nombre}}">{{client.nombre}}</option>
+                    @endeach
+                </select> 
+              
+            </h3><br>
+            <input class="button is-success is-rounded" type="button" style="margin-left: 50px;" value="Cancelar" onclick="location.href='http://127.0.0.1:3333/vehiculo'" />
+            <input class="button is-success is-rounded" type="submit" value="Agregar" />
+            <<br><br>><br><br><br><br><br>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+    
+  </body>
+</html>

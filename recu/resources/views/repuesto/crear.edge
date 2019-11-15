@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ventas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    {{ style('style') }}
+  </head>
+  <body>
+  <section>
+    
+    <div >
+      
+      <h1 class="title">
+        Agregar Repuesto
+      </h1><br><br>
+      <form action="http://127.0.0.1:3333/repuesto/crear" method="POST">
+        <div >
+          <div>
+            <h3 style="color:white">
+              Descripcion <input class="input is-success is-rounded" name="descripcion" placeholder="Descripcion"/>
+            </h3><br>
+            <h3 style="color:white">
+              Costo De Unidad <input class="input is-success is-rounded" name="costounit" placeholder="Costo De Unidad"/>
+            </h3><br>
+            <h3 style="color:white">
+              Precio De Unidada <input class="input is-success is-rounded" name="preciounit" placeholder="Precio De Unidad"/>
+            </h3><br>
+            <h3 style="color:white">
+              Imp Parcial <input class="input is-success is-rounded" name="imp_parcial" placeholder="Imp Parcial"/>
+            </h3><br>
+            <h3 style="color:white">
+              Hojas de Partes
+                <select name="hojaparte_id"> 
+                    @each(hojaparte in hojaparte)
+                        <option value="{{hojaparte.id}}" name="{{hojaparte.concepto}}">{{hojaparte.concepto}}</option>
+                    @endeach
+                </select> 
+            </h3><br>
+            <h3 style="color:white">
+              Mecanico Responsable
+                <select name="hojaparte_idmec"> 
+                    @each(hojaparte2 in hojaparte2)
+                        <option value="{{hojaparte2.mecanicor_id}}" name="{{hojaparte2.mecanicor.nombre}}">{{hojaparte2.mecanicor.nombre}}</option>
+                    @endeach
+                </select> 
+            </h3><br>
+            <input class="button is-success is-rounded" type="button" style="margin-left: 50px;" value="Cancelar" onclick="location.href='http://127.0.0.1:3333/repuesto'" />
+            <input class="button is-success is-rounded" type="submit" value="Agregar" />
+            <<br><br>><br><br><br><br><br>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+    
+  </body>
+</html>

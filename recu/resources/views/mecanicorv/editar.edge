@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ventas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    {{ style('style') }}
+  </head>
+  <body>
+  <section>
+    
+    <div >
+      
+      <h1 class="title">
+        Modificar Mecanico Responsable Del Vehiculo
+      </h1><br><br><br><br><br>
+      <form action="http://127.0.0.1:3333/mecanicorv/editar/{{mecanicorv.id}}" method="POST">
+        <div >
+          <div>
+            <h3 style="color:white">
+              Mecanico Responsable
+                <select name="mecanicor_id"> 
+                <option value="{{mecanicorv.mecanicor_id}}" >{{mecanicorv.mecanicor_id}}</option>
+                    @each(mecanicor in mecanicor)
+                        <option value="{{mecanicor.id}}"  name="{{mecanicor.nombre}}">{{mecanicor.nombre}}</option>
+                    @endeach
+                </select> 
+            </h3><br>
+            <h3 style="color:white">
+              Vehiculo
+                <select name="vehiculo_id"> 
+                <option value="{{mecanicorv.vehiculo_id}}" >{{mecanicorv.vehiculo_id}}</option>
+                    @each(vehiculo in vehiculo)
+                        <option value="{{vehiculo.id}}"  name="{{vehiculo.modelo}}">{{vehiculo.modelo}}</option>
+                    @endeach
+                </select> 
+            </h3><br>
+            <input class="button is-success is-rounded" type="button" style="margin-left: 50px;" value="Cancelar" onclick="location.href='http://127.0.0.1:3333/mecanicorv'" />
+            <input class="button is-success is-rounded" type="submit" value="Guardar" />
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+    
+  </body>
+</html>

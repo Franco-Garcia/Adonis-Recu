@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ventas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    {{ style('style') }}
+  </head>
+  <body>
+  
+    <div class="container">
+    
+      <h1 class="title" style="margin-left: 450px;">Hoja De Parte</h1><br><br>
+      <input class="button is-success is-rounded" style="margin-left: 450px;" type="button" value="Regresar" onclick="location.href='http://127.0.0.1:3333'" />
+      <input class="button is-success is-rounded" type="button" value="Agregar" onclick="location.href='http://127.0.0.1:3333/hojaparte/crear'" />
+        <table class="table" style="margin-left: 300px;">
+            <tr>
+                <th style="width:100px; height: 20px;">Concepto</th>
+                <th style="width:100px; height: 20px;">Cantidad</th>
+                <th style="width:100px; height: 20px;">Reparacion</th>
+                <th style="width:100px; height: 20px;">Mecanico Responsable</th>
+            </tr>
+            <ul>
+                @each(hojaparte in hojaparte)
+                    <tr>
+                        <th style="width:100px; height: 20px;">{{hojaparte.concepto}}</th>
+                        <th style="width:100px; height: 20px;">{{hojaparte.cantidad}}</th>
+                        <th style="width:100px; height: 20px;">{{hojaparte.reparacion}}</th>
+                        <th style="width:100px; height: 20px;">{{hojaparte.mecanicor.nombre}}</th>
+                        <th style="width:100px; height: 20px;"><input class="button is-warning is-rounded" type="button" value="Editar" onclick="location.href='http://127.0.0.1:3333/hojaparte/editar/{{hojaparte.id}}'"  /></th>
+                        <th style="width:100px; height: 20px;"><input class="button is-danger is-rounded" type="button" value="Eliminar" onclick="location.href='http://127.0.0.1:3333/hojaparte/eliminar/{{hojaparte.id}}'"  /></th>
+
+                    </tr>
+                @endeach
+            </ul>
+        </table>  
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
+    
+  </body>
+</html>

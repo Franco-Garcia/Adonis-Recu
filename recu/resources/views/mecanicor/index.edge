@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ventas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    {{ style('style') }}
+  </head>
+  <body>
+  
+    <div class="container">
+    
+      <h1 class="title" style="margin-left: 450px;">Mecanico Responsable</h1><br>
+      <input class="button is-success is-rounded" style="margin-left: 450px;" type="button" value="Regresar" onclick="location.href='http://127.0.0.1:3333'" />
+      <input class="button is-success is-rounded" type="button" value="Agregar" onclick="location.href='http://127.0.0.1:3333/mecanicor/crear'" />
+        <table class="table" style="margin-left: 250px;">
+            <tr>
+                <th style="width:100px; height: 20px;">Nombre</th>
+                <th style="width:100px; height: 20px;">Direccion</th>
+                <th style="width:100px; height: 20px;">Telefono</th>
+                <th style="width:100px; height: 20px;">Costo X Hora</th>
+                <th style="width:100px; height: 20px;">Categoria</th>
+            </tr>
+            <ul>
+                @each(mecanicor in mecanicor)
+                    <tr>
+                        <th style="width:100px; height: 20px;">{{mecanicor.nombre}}</th>
+                        <th style="width:100px; height: 20px;">{{mecanicor.direccion}}</th>
+                        <th style="width:100px; height: 20px;">{{mecanicor.telefono}}</th>
+                        <th style="width:100px; height: 20px;">{{mecanicor.costoxhora}}</th>
+                        <th style="width:100px; height: 20px;">{{mecanicor.categoria}}</th>
+                        <th style="width:100px; height: 20px;"><input class="button is-warning is-rounded" type="button" value="Editar" onclick="location.href='http://127.0.0.1:3333/mecanicor/editar/{{mecanicor.id}}'"  /></th>
+                        <th style="width:100px; height: 20px;"><input class="button is-danger is-rounded" type="button" value="Eliminar" onclick="location.href='http://127.0.0.1:3333/mecanicor/eliminar/{{mecanicor.id}}'"  /></th>
+
+                    </tr>
+                @endeach
+            </ul>
+        </table>  
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
+    
+  </body>
+</html>

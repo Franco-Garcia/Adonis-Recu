@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ventas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    {{ style('style') }}
+  </head>
+  <body>
+  
+    <div class="container">
+    
+      <h1 class="title" style="margin-left: 450px;">Vehiculos</h1>
+      <input class="button is-success is-rounded" style="margin-left: 450px;" type="button" value="Regresar" onclick="location.href='http://127.0.0.1:3333'" />
+      <input class="button is-success is-rounded" type="button" value="Agregar" onclick="location.href='http://127.0.0.1:3333/vehiculo/crear'" />
+        <table class="table" style="margin-left: 250px;">
+            <tr>
+                <th style="width:100px; height: 20px;">Modelo</th>
+                <th style="width:100px; height: 20px;">Color</th>
+                <th style="width:100px; height: 20px;">Fecha Entrada</th>
+                <th style="width:100px; height: 20px;">Hora Entrada</th>
+                <th style="width:100px; height: 20px;">Cliente</th>
+            </tr>
+            <ul>
+                @each(vehiculo in vehiculos)
+                    <tr>
+                        <th style="width:100px; height: 20px;">{{vehiculo.modelo}}</th>
+                        <th style="width:100px; height: 20px;">{{vehiculo.color}}</th>
+                        <th style="width:100px; height: 20px;">{{vehiculo.fecha_ent}}</th>
+                        <th style="width:100px; height: 20px;">{{vehiculo.hora_ent}}</th>
+                        <th style="width:100px; height: 20px;">{{vehiculo.cliente.nombre}}</th>
+                        <th style="width:100px; height: 20px;"><input class="button is-warning is-rounded" type="button" value="Editar" onclick="location.href='http://127.0.0.1:3333/vehiculo/editar/{{vehiculo.id}}'"  /></th>
+                        <th style="width:100px; height: 20px;"><input class="button is-danger is-rounded" type="button" value="Eliminar" onclick="location.href='http://127.0.0.1:3333/vehiculo/eliminar/{{vehiculo.id}}'"  /></th>
+
+                    </tr>
+                @endeach
+            </ul>
+        </table>  
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
+    
+  </body>
+</html>
